@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date
-from database import Base
+from backend.database import Base
+
 
 class Application(Base):
     __tablename__ = "applications"
