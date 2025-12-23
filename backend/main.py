@@ -6,9 +6,9 @@ from typing import List
 from fastapi.middleware.cors import CORSMiddleware
 
 
-from database import SessionLocal, engine
-from models import Application
-from database import Base
+from backend.database import SessionLocal, engine, Base
+from backend.models import Application
+from backend.database import Base
 from pydantic import BaseModel
 
 Base.metadata.create_all(bind=engine)
