@@ -14,12 +14,19 @@ from pydantic import BaseModel
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
-    allow_credentials=True,
+    allow_origins=[
+        "http://localhost:3000",
+        "https://job-application-tracker-403r6rvfx-ben-bouhdanas-projects.vercel.app",  # <-- replace with YOUR vercel URL
+    ],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_origins=["*"],
 )
 
 
