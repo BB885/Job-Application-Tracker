@@ -1,33 +1,27 @@
-from fastapi import FastAPI, Depends
-from fastapi import HTTPException
+from fastapi import FastAPI, Depends, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from datetime import date
 from typing import List
-from fastapi.middleware.cors import CORSMiddleware
-
+from pydantic import BaseModel
 
 from backend.database import SessionLocal, engine, Base
 from backend.models import Application
-from backend.database import Base
-from pydantic import BaseModel
-
-Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-
-from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://job-application-tracker-403r6rvfx-ben-bouhdanas-projects.vercel.app",  # <-- replace with YOUR vercel URL
+        "https://job-application-tracker-403r6rvfx-ben-bouhdanas-projects.vercel.app",
     ],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+Base.metadata.create_all(bind=engine)
 
 def get_db():
     db = SessionLocal()
