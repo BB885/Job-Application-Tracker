@@ -19,3 +19,14 @@ npm install
 npm start
 
 http://localhost:3000
+
+# Screenshots
+
+Inline Status Editing
+![Status Edit](screenshots/status-edit.png)
+
+Analytics Dashboard
+![Analytics](screenshots/analytics.png)
+
+PDF Export
+![PDF Export](screenshots/pdf-export.png)
