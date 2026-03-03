@@ -5,8 +5,8 @@ from datetime import date
 from typing import List
 from pydantic import BaseModel
 
-from backend.database import SessionLocal, engine, Base
-from backend.models import Application
+from database import SessionLocal, engine, Base
+from models import Application
 
 app = FastAPI()
 
